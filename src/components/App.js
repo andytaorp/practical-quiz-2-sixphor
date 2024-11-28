@@ -11,14 +11,9 @@ function App() {
     setHabits((habits) => [...habits, habit]);
   };
 
-  // const handleToggleHabit = (id) => {
-  //   // TODO: write code to toggle a habit's status
-  //   setHabits((habits) => {
-  //     habits.map((habit) => habit.id === id ? { ...habit, completed: !habit.completed } : habit);
-  //   })
-  // };
 
   const handleToggleHabit = (id) => {
+    //   // TODO: write code to toggle a habit's status
     setHabits((habits) => 
       habits.map((habit) => 
         habit.id === id ? { ...habit, completed: !habit.completed } : habit
