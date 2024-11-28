@@ -5,21 +5,31 @@ import HabitList from "./HabitList";
 function App() {
   const [habits, setHabits] = useState([]);
 
-  const handleAddHabit = (habitName) => {
+  const handleAddHabit = (habit) => {
     // TODO: write code to add a new habit here
-    setHabits((habits) => [...habits, habitName]);
+    console.log("handleAddHabit", habit);
+    setHabits((habits) => [...habits, habit]);
   };
 
+  // const handleToggleHabit = (id) => {
+  //   // TODO: write code to toggle a habit's status
+  //   setHabits((habits) => {
+  //     habits.map((habit) => habit.id === id ? { ...habit, completed: !habit.completed } : habit);
+  //   })
+  // };
+
   const handleToggleHabit = (id) => {
-    // TODO: write code to toggle a habit's status
-    setHabits((habits) => {
-      habits.map((habitName) => habits.id === id ? { ...habitName, completed: !habitName.completed } : habitName);
-    })
+    setHabits((habits) => 
+      habits.map((habit) => 
+        habit.id === id ? { ...habit, completed: !habit.completed } : habit
+      )
+    );
   };
+  
 
   const handleDeleteHabit = (id) => {
     // TODO: write code to delete a habit
-    setHabits((habits) => habits.filter((habitName) => habitName.id !== id));
+    setHabits((habits) => habits.filter((habit) => habit.id !== id));
   };
 
   return (
@@ -30,7 +40,7 @@ function App() {
       {/*TODO: add a list of habits*/}
       <HabitList
         habits={habits} 
-        handleToggleHabit={handleToggleHabit}
+        onToggleHabit={handleToggleHabit}
         onDeleteHabit={handleDeleteHabit}
       />
     </div>
