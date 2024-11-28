@@ -10,6 +10,12 @@ const handleHabitInput = (e) => {
   const handleSubmit = (e) => {
     // TODO: write code to handle form submission
     e.preventDefault();
+
+    if (!habitName.trim()) {
+      alert("Please enter a habit name.");
+      return;
+    }
+    
     const newHabit ={
       id: Date.now(),
       habitName: habitName,
